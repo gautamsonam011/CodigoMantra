@@ -23,7 +23,7 @@ class BlogUserForm(forms.ModelForm):
 class BlogDetailForm(forms.ModelForm):
     class Meta:
         model = models.blog_details
-        fields = ['blogerName', 'age','gender','mobileNo','email','desc','image'] 
+        fields = ['patientName', 'age','gender','mobileNo','email','disease','desc','image'] 
 
     def __init__(self, *args, **kwargs):
         super(BlogDetailForm, self).__init__(*args, **kwargs)
@@ -31,15 +31,3 @@ class BlogDetailForm(forms.ModelForm):
             self.fields[field].widget.attrs.update({
                 'class': 'form-control'
         })
-
-class BlogCommentsDetailForm(forms.ModelForm):
-    class Meta:
-        model = models.commentMessage_detail
-        fields = ['name','commentMsg', 'email','image'] 
-
-    def __init__(self, *args, **kwargs):
-        super(BlogDetailForm, self).__init__(*args, **kwargs)
-        for field in iter(self.fields):
-            self.fields[field].widget.attrs.update({
-                'class': 'form-control'
-        })            

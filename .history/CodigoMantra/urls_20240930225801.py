@@ -18,7 +18,7 @@ urlpatterns = [
     path('update-blog/<slug>', views.update_blog, name='update-blog'),
     path('delete-blog/<int:pk>', views.delete_blog, name='delete-blog'),
     path('view-all-blogs', views.view_all_blogs_page, name='view-all-blogs'),
-    path('post/<int:post_id>/like/', views.toggle_like, name='toggle-like'),
+    
 ]
 
 if settings.DEBUG:

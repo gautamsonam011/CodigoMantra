@@ -140,7 +140,7 @@ def view_all_blogs_page(request):
 @user_passes_test(is_authUser)
 def add_blog_comments_page(request):
     if request.method == 'POST':
-        form = forms.BlogCommentsDetailForm(request.POST, request.FILES)
+        form = forms.BlogDetailForm(request.POST, request.FILES)
         if form.is_valid():
             instance = form.save(commit=False)
             instance.user_id = request.user.id
@@ -148,8 +148,8 @@ def add_blog_comments_page(request):
             instance.save()
             return redirect('view-all-patient')
     else:
-        form = forms.BlogCommentsDetailForm()
-    return render(request, 'CodigoApp/addblogComments.html', {'form':form})
+        form = forms.BlogDetailForm()
+    return render(request, 'CodigoApp/addblogs.html', {'form':form})
 
 
 @login_required(login_url='login')
@@ -165,15 +165,3 @@ def delete_blog_comment(request,pk):
 def view_all_blogs_comments(request):
     newData = models.commentMessage_detail.objects.all().filter(user_id=request.user.id)
     return render(request,'CodigoApp/viewblogComments.html',{'newData':newData})
-
-# ============ Like =================== 
-    
-def toggle_like(request, post_id):
-    post = get_object_or_404(models.Post, id=post_id)
-    like, created = models.count_of_likes_blog.objects.get_or_create(user=request.user, post=post)
-
-    if not created:
-        # If the like already existed, remove it (unlike)
-        like.delete()
-    # Redirect back to the post or wherever you want
-    return redirect('post_detail', post_id=post.id)    

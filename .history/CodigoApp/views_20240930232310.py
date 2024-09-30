@@ -166,7 +166,6 @@ def view_all_blogs_comments(request):
     newData = models.commentMessage_detail.objects.all().filter(user_id=request.user.id)
     return render(request,'CodigoApp/viewblogComments.html',{'newData':newData})
 
-# ============ Like =================== 
     
 def toggle_like(request, post_id):
     post = get_object_or_404(models.Post, id=post_id)

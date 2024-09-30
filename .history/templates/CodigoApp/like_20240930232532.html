@@ -1,0 +1,27 @@
+{% if user.is_authenticated %}
+    <form action="{% url 'toggle_like' post.id %}" method="post" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit">
+            {% if user in post.like_set.values_list('user', flat=True) %}
+                Unlike
+            {% else %}
+                Like
+            {% endif %}
+        </button>
+    </form>
+{% else %}
+    <a href="{% url 'login' %}">Login to like</a>
+{% endif %}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('.like-btn').click(function(e) {
+        e.preventDefault();
+        var btn = $(this);
+        $.post(btn.attr('href'), {csrfmiddlewaretoken: '{{ csrf_token }}'}, function(response) {
+            btn.text(response.new_text);
+        });
+    });
+});
+</script>
