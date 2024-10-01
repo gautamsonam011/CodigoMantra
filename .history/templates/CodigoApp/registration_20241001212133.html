@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+{% load widget_tweaks %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index Page</title>
+    <link rel="stylesheet" href="{% static 'css1/style.css' %}">
+</head>
+
+<body class="bdy">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}     
+        <div id="wrapper" style="height: 520px;">
+            <h2>Registration</h2>
+            <form action="#" class="form1">
+                <div class="input-box1">
+                    {% render_field userForm.first_name id="inpt1" placeholder="First Name" %}
+                </div>
+                <div class="input-box1">
+                    {% render_field userForm.last_name id="inpt1" placeholder="Last Name" %}
+                </div>
+                <div class="input-box1">
+                    {% render_field patientForm.symptoms id="inpt1" placeholder="Symptoms" %}
+                </div>
+                <div class="input-box1">
+                    {% render_field patientForm.mobile id="inpt1" pattern="[6789][0-9]{9}" placeholder="Contact Number" %}
+                </div>
+                <div class="input-box1">
+                    {% render_field userForm.username id="inpt1" placeholder="Username" %}
+                </div>
+                <div class="input-box1">
+                    {% render_field userForm.password id="inpt1" placeholder="Password" %}
+                </div>
+                <div class="input-box1">
+                    {% render_field patientForm.profile_pic required="required" id="inpt1" placeholder="patientForm.Profile Picture" %}
+                </div>
+                <div class="policy">
+                    <input id="inpt1" type="checkbox">
+                    <h5>I accept all terms & condition</h5>
+                </div>
+                <div class="bx" action="Submit">
+                    <input type="Submit" value="Register Now" name="register">
+                </div>
+                <div class="text">
+                    <h5>Already have an account? <a href="/login" style="color: #1A3636 ;
+                        text-decoration: none;">Login now</a></h5>
+                </div>
+               
+            </form>
+        </div>
+    </form>  
+</body>
+</html>

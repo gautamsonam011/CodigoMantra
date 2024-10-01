@@ -1,0 +1,338 @@
+/* css for Register Page */
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+.bdy {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(0deg, transparent, #677D6A, #1A3636);
+    opacity: 1;
+}
+
+#wrapper {
+    position: relative;
+    width: 100%;
+    background: #fff;
+    padding: 55px;
+    border-radius: 6px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+#wrapper h2 {
+    position: relative;
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+#wrapper h2::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 28px;
+    border-radius: 12px;
+    background: #1A3636;
+}
+
+#wrapper .form1 {
+    margin-top: 30px;
+    font-size: small;
+}
+
+.wrapper .form1 .input-box1 {
+    height: 52px;
+    margin: 18px 0;
+}
+.arf{
+    margin-left: -3rem;
+}
+.input-box1 #inpt1 {
+    margin-top: 10px;
+    height: 100%;
+    width: 100%;
+    outline: none;
+    padding: 5px 15px;
+    font-size: 17px;
+    font-weight: 400;
+    color: #333;
+    border: 1.5px solid #C7BEBE;
+    border-bottom-width: 2.5px;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.input-box1 #inpt1:focus,
+.input-box1 #inpt1:valid {
+    border-color: 677D6A ;
+}
+
+.form1 .policy {
+    display: flex;
+    align-items: center;
+}
+
+.form1 h3 {
+    color: #707070;
+    font-size: 14px;
+    font-weight: 500;
+    margin-left: 10px;
+}
+
+.bx input{
+    color: #fff;
+    letter-spacing: 1px;
+    border: none;
+    background: 677D6A ;
+    cursor: pointer;
+    text-align: center;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    border-radius: 10px;
+    background-color: #1A3636;
+    margin-top: 20px;
+}
+
+.bx input:hover {
+    background: #1A3636 ;
+}
+
+.form1 .text h3 {
+    color: #333;
+    width: 100%;
+    text-align: center;
+}
+
+.form1 .text h5 a:hover {
+    text-decoration: underline;
+}
+
+.admin {
+    text-align: center;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    width: 300px;
+    background: 677D6A ;
+    border-radius: 10px;
+    letter-spacing: 1px;
+}
+
+.admin a {
+    color: #fff;
+    text-decoration: none;
+}
+
+nav {
+    position: relative;
+}
+
+nav ul {
+    position: -webkit-sticky;
+    list-style: none;
+    justify-content: space-around;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: bolder;
+}
+
+nav ul li a:hover {
+    color: rgb(8, 85, 85);
+}
+
+
+/* ================= css for login page ================  */
+
+.bdy1 {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-position: center;
+    background-size: cover;
+    background-image: linear-gradient(0deg, transparent, #677D6A, #1A3636);
+    opacity: 1;
+}
+
+.main {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    padding: 10px 20px;
+    transition: transform 0.2s;
+    width: 350px;
+    text-align: center;
+}
+
+.main h1 {
+    margin-top: 10px;
+    color: #1A3636 ;
+}
+.main h3{
+    margin-top: -10px;
+    text-align: center;
+    color: #fff; 
+}
+label {
+    display: block;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 5px;
+    text-align: left;
+    color: #1A3636 ;
+    font-weight: bold;
+}
+p{
+    color: #1A3636 ;
+}
+#inpt {
+    display: block;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+#btn {
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    border: none;
+    color: white;
+    cursor: pointer;
+    background-color: #1A3636  ;
+    width: 100%;
+    font-size: 16px;
+}
+
+.wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.blog-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.blog-card {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 30%; /* Each card will take up 30% of the row */
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+    transform: translateY(-5px);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content {
+    padding: 15px;
+}
+
+.blog-title {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    color: #1A3636;
+}
+
+.blog-description {
+    font-size: 1em;
+    color: #677D6A;
+    margin-bottom: 15px;
+}
+
+.blog-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.blog-author {
+    font-size: 0.9em;
+    color: #677D6A;
+}
+
+.read-more {
+    text-decoration: none;
+    color: #3498db;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.read-more:hover {
+    color: #2980b9;
+}
+
+.blog-actions {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-top: 1px solid #eee;
+    background-color: #f9f9f9;
+}
+
+.action-button {
+    background-color: transparent;
+    border: none;
+    color: #888;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.action-button:hover {
+    color: #3498db;
+}
+
+.action-button i {
+    margin-right: 8px;
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+    .blog-card {
+        width: calc(50% - 20px); /* Adjust cards to two per row */
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-card {
+        width: 100%; /* Stack cards vertically on small screens */
+    }
+}

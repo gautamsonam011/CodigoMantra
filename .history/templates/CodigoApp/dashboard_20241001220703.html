@@ -1,0 +1,232 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Cordigo Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static '/assets/images/favicon.png' %}" type="image/x-icon" />
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="{% static '/assets/images/apple-touch-icon-57-precomposed.png' %}">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="{% static '/assets/images/apple-touch-icon-114-precomposed.png' %}">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="{% static '/assets/images/apple-touch-icon-72-precomposed.png' %}">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="{% static '/assets/images/apple-touch-icon-144-precomposed.png' %}">
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link rel="stylesheet" , href="{% static '/assets/plugins/pace/pace-theme-flash.css' %}">
+    <link rel="stylesheet" , href="{% static '/assets/plugins/bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" , href="{% static '/assets/plugins/bootstrap/css/bootstrap-theme.min.css' %}">
+    <link rel="stylesheet" , href="{% static '/assets/fonts/font-awesome/css/font-awesome.css' %}">
+
+    <link rel="stylesheet" , href="{% static '/assets/fonts/webfont/cryptocoins.css' %}">
+    <link rel="stylesheet" , href="{% static '/assets/css/animate.min.css' %}">
+    <link rel="stylesheet" , href="{% static '/assets/plugins/perfect-scrollbar/perfect-scrollbar.css' %}">
+    <!-- CORE CSS TEMPLATE - START -->
+    <link rel="stylesheet" , href="{% static '/assets/css/style.css' %}">
+    <link rel="stylesheet" , href="{% static '/assets/css/responsive.css' %}">
+    <!-- CORE CSS TEMPLATE - END -->
+
+</head>
+
+<body>
+    <form method="post">
+        {% csrf_token %}
+        <!-- START TOPBAR -->
+        <div class='page-topbar gradient-blue1'>
+            <div class='logo-area crypto'>
+                <h4 >Codigo Mantra</h4>
+            </div>
+            <div class='quick-area'>
+                <div class='pull-left'>
+                    <ul class="info-menu left-links list-inline list-unstyled">
+                        <li class="sidebar-toggle-wrap">
+                            <a href="#" data-toggle="sidebar" class="sidebar_toggle">
+                                <i class="fa fa-bars"></i>
+                            </a>
+                        </li>
+
+                    </ul>
+                </div>
+                <div class='pull-right'>
+                    <ul class="info-menu right-links list-inline list-unstyled">
+
+                        <li class="profile">
+                            <a href="#" data-toggle="dropdown" class="toggle">
+                                <span>{{request.user.first_name}} {{request.user.last_name}}<i class="fa fa-angle-down"></i></span>
+                            </a>
+                            <ul class="dropdown-menu profile animated fadeIn">
+
+                                <li class="last">
+                                    <a href="logout">
+                                        <i class="fa fa-lock"></i> Logout
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <!-- END TOPBAR -->
+        <!-- START CONTAINER -->
+        <div class="page-container row-fluid container-fluid">
+
+            <!-- SIDEBAR - START -->
+
+            <div class="page-sidebar fixedscroll">
+
+                <!-- MAIN MENU - START -->
+                <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+
+                    <ul class='wraplist'>
+                        <li class='menusection'>{{request.user.first_name}} {{request.user.last_name}}</li>
+
+                        <li class="open">
+                            <a href='/dashboard'>
+                                <i class="img">
+                                    <img src="{% static '/data/hos-dash/icons/3.png' %}" alt="" class="width-20">
+                                </i>
+                                <span class="title" style="text-align:center;">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="">
+                            <a href="javascript:;">
+                                <i class="img">
+                                    <img src="{% static '/data/hos-dash/icons/5.png' %}" alt="" class="width-20">
+                                </i>
+                                <span class="title">Blog Page</span>
+                                <span class="arrow "></span>
+                            </a>
+                            <ul class="sub-menu">
+
+                                <li>
+                                    <a class href='addblog'>Add Blog</a>
+                                </li>
+                                <li>
+                                    <a class href='view-all-blogs'>All Patients</a>
+                                </li>
+                                
+                            </ul>
+                        </li>
+
+                        
+
+                    </ul>
+
+                </div>
+                <!-- MAIN MENU - END -->
+
+            </div>
+            <!--  SIDEBAR - END -->
+
+            <!-- START CONTENT -->
+            <section id="main-content" class=" ">
+                <div class="wrapper main-wrapper row">
+
+                    <div class='col-xs-12'>
+                        <div class="page-title">
+
+                            <div class="pull-left">
+                                <!-- PAGE HEADING TAG - START -->
+                                <h1 style="text-align: center;">User Profile</h1>
+                                <!-- PAGE HEADING TAG - END -->
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="clearfix"></div>
+                    <!-- MAIN CONTENT AREA STARTS -->
+                     
+                    <div class="col-lg-4">
+                        <section class="box ">
+                            <div class="content-body p">
+                                <div class="row">
+                                    <div class="doctors-list patient relative">
+                                        <div class="blogers-head relative text-center">
+                                            <div class="bloger-img img-circle">
+                                                <img src="{{ profile_pic.url}}"
+                                                    class="rad-50 center-block" alt="">
+                                                <div class="stutas"></div>
+                                            </div>
+                                            <h3 class="header w-text relative bold"><span>{{request.user.first_name}}</span><span>{{request.user.last_name}}</span></h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="patients-info relative">
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="patient-card has-shadow2">
+                                                        <div class="doc-info-wrap">
+                                                            <div class="patient-info">
+                                                                <h5 class="bold">Female</h5>
+                                                                <h6>Gender</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-sm-6 col-xs-12">
+                                                    <div class="patient-card has-shadow2">
+                                                        <div class="doc-info-wrap">
+                                                            <div class="patient-info">
+                                                            <h5 class="bold">Age: 23</h5>
+                                                            <h6>Years Old</h6>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                
+                                            </div>
+                                        </div>
+                                        <!-- end row -->
+                                    </div>
+                                </div>
+                            </div>
+                        </section>
+                    </div>
+                    <!-- MAIN CONTENT AREA ENDS -->
+                </div>
+            </section>
+            <!-- END CONTENT -->
+           
+
+            <div class="chatapi-windows ">
+
+            </div>
+        </div>
+    </form>
+    <!-- CORE JS FRAMEWORK - START -->
+    <script src="{% static '/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/pace/pace.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/viewport/viewportchecker.js' %}"></script>
+
+    <script src="{% static '/assets/js/jquery.easing.min.js' %}"></script>
+    <!-- CORE JS FRAMEWORK - END -->
+
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - START -->
+    <script src="{% static '/assets/plugins/sparkline-chart/jquery.sparkline.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/chartjs-chart/Chart.min.js' %}"></script>
+    <script src="{% static '/assets/js/chart-chartjs.js' %}"></script>
+
+    <!-- OTHER SCRIPTS INCLUDED ON THIS PAGE - END -->
+
+    <!-- CORE TEMPLATE JS - START -->
+    <script src="{% static '/assets/js/scripts.js' %}"></script>
+    <!-- END CORE TEMPLATE JS - END -->
+    {{ redirect_to_patientlogin_immediately }} 
+</body>
+
+</html>

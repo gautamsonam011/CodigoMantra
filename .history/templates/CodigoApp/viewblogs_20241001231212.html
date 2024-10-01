@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+{% load widget_tweaks %}
+<meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Dashboard</title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static '/assets/images/favicon.png' %}" type="image/x-icon" />
+    <!-- For iPhone -->
+    <link rel="apple-touch-icon-precomposed" href="{% static '/assets/images/apple-touch-icon-57-precomposed.png' %}">
+    <!-- For iPhone 4 Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="114x114"
+        href="{% static '/assets/images/apple-touch-icon-114-precomposed.png' %}">
+    <!-- For iPad -->
+    <link rel="apple-touch-icon-precomposed" sizes="72x72"
+        href="{% static '/assets/images/apple-touch-icon-72-precomposed.png' %}">
+    <!-- For iPad Retina display -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144"
+        href="{% static '/assets/images/apple-touch-icon-144-precomposed.png' %}">
+
+    <!-- CORE CSS FRAMEWORK - START -->
+    <link href="{% static '/assets/plugins/pace/pace-theme-flash.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static '/assets/plugins/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/assets/plugins/bootstrap/css/bootstrap-theme.min.css' %}" rel="stylesheet"
+        type="text/css" />
+    <link href="{% static '/assets/fonts/font-awesome/css/font-awesome.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/assets/fonts/webfont/cryptocoins.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/assets/css/animate.min.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/assets/plugins/perfect-scrollbar/perfect-scrollbar.css' %}" rel="stylesheet"
+        type="text/css" />
+    <link href="{% static '/assets/plugins/jvectormap/jquery-jvectormap-2.0.1.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static '/assets/plugins/morris-chart/css/morris.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static '/assets/plugins/calendar/fullcalendar.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static '/assets/plugins/icheck/skins/minimal/minimal.css' %}" rel="stylesheet" type="text/css"
+        media="screen" />
+    <link href="{% static '/assets/css/style.css' %}" rel="stylesheet" type="text/css" />
+    <link href="{% static '/assets/css/responsive.css' %}" rel="stylesheet" type="text/css" />
+</head>
+<!-- END HEAD -->
+
+<!-- BEGIN BODY -->
+
+<body class=" ">
+    <!-- START TOPBAR -->
+    <div class='page-topbar gradient-blue1'>
+        <div class='logo-area crypto'>
+            <h4 >Codigo Mantra</h4>
+        </div>
+        <div class='quick-area'>
+            <div class='pull-left'>
+                <ul class="info-menu left-links list-inline list-unstyled">
+                    <li class="sidebar-toggle-wrap">
+                        <a href="#" data-toggle="sidebar" class="sidebar_toggle">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                    </li>
+                    <li class="hidden-sm hidden-xs searchform">
+                        <form action="#" method="post">
+                            <div class="input-group">
+                                <span class="input-group-addon">
+                                    <i class="fa fa-search"></i>
+                                </span>
+                                <input type="text" class="form-control animated fadeIn" placeholder="Search & Enter">
+                            </div>
+                            <input type='submit' value="">
+                        </form>
+                    </li>
+                </ul>
+            </div>
+            <div class='pull-right'>
+                <ul class="info-menu right-links list-inline list-unstyled">
+
+
+                    <li class="profile">
+                        <a href="#" data-toggle="dropdown" class="toggle">
+                            
+                            <span>{{request.user.first_name}}{{request.user.last_name}}<i class="fa fa-angle-down"></i></span>
+                        </a>
+                        <ul class="dropdown-menu profile animated fadeIn">
+
+                            <li class="last">
+                                <a href="crypto-login.html">
+                                    <i class="fa fa-lock"></i> Logout
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page-container row-fluid container-fluid">
+        <!-- SIDEBAR - START -->
+        <div class="page-sidebar fixedscroll">
+            <!-- MAIN MENU - START -->
+            <div class="page-sidebar-wrapper" id="main-menu-wrapper">
+
+                <ul class='wraplist'>
+                    <li class='menusection'>{{request.user.first_name}} {{request.user.last_name}}</li>
+
+                    <li class="open">
+                        <a href='/dashboard'>
+                            <i class="img">
+                                <img src="{% static '/data/hos-dash/icons/3.png' %}" alt="" class="width-20">
+                            </i>
+                            <span class="title" style="text-align:center;">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="javascript:;">
+                            <i class="img">
+                                <img src="{% static '/data/hos-dash/icons/5.png' %}" alt="" class="width-20">
+                            </i>
+                            <span class="title">Blog Page</span>
+                            <span class="arrow "></span>
+                        </a>
+                        <ul class="sub-menu">
+
+                            <li>
+                                <a class href='addblog'>Add Blog</a>
+                            </li>
+                            <li>
+                                <a class href='view-all-blogs'>All Patients</a>
+                            </li>
+                            
+                        </ul>
+                    </li>
+
+                    
+
+                </ul>
+
+            </div>
+        </div>
+        <section id="main-content" class=" ">
+            <div class="wrapper main-wrapper row">
+
+                <div class='col-xs-12'>
+                    <div class="page-title">
+                        <div class="pull-left">
+                            <h1 class="title">All Blogs</h1>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+                <!-- MAIN CONTENT AREA STARTS -->
+                {% for i in newData %}
+                <div class="col-lg-4 col-md-6">
+                    <section class="box ">
+                        <div class="content-body p">
+                            <div class="row">
+                                <div class="doctors-list patient relative">
+                                    <div class="doctors-head relative text-center">
+                                        <div class="patient-img img-circle">
+                                            <img src="{{i.image.url}}" class="rad-50 center-block" alt="">
+                                            <div class="stutas recent"></div>
+                                        </div>
+                                        <h3 class="header w-text relative bold">Name : {{i.blogerName}}</h3>
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="patients-info relative">
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="patient-card has-shadow2">
+                                                    <div class="doc-info-wrap">
+                                                        <div class="patient-info">
+                                                            <h5 class="bold">{{i.gender}}</h5>
+                                                            <h6>Bloger Gender</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-6 col-xs-12">
+                                                <div class="patient-card has-shadow2">
+                                                    <div class="doc-info-wrap">
+                                                        <div class="patient-info">
+                                                            <h5 class="bold">Age: {{i.age}}</h5>
+                                                            <h6>Years Old</h6>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div><!-- end row -->
+                                    <div class="row">
+                                        <h2>{{i.heading}}</h2>
+                                        <p>{{i.brief}}</p>
+                                    </div>
+
+                                    <div class="col-xs-12 mb-30">
+                                        <div class="row">
+                                            <div class="col-xs-4 mb-30">
+                                                <div class="form-group no-mb">
+                                                    <a href="" type="button" class="btn btn-primary btn-lg gradient-blue"
+                                                        style="width:100%"> View</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 mb-30">
+                                                <div class="form-group no-mb">
+                                                    <a href="{% url 'update-blog' i.slug %}" type="button" class="btn btn-primary btn-lg gradient-blue"
+                                                        style="width:100%">Edit</a>
+                                                </div>
+                                            </div>
+                                            <div class="col-xs-4 mb-30">
+                                                <div class="form-group no-mb">
+                                                    <a href="{% url 'delete-blog' i.id %}" type="button" class="btn btn-primary btn-lg gradient-blue"
+                                                        style="width:100%"> Delete</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="blog-actions m-5">
+                                            <button class="action-button like-button">
+                                              <i class="fas fa-heart"></i> Like (<span class="like-count"
+                                                >0</span
+                                              >)
+                                            </button>
+                                            <button class="action-button comment-button">
+                                              <i class="fas fa-comment"></i> Comment
+                                            </button>
+                                            <button
+                                              class="action-button share-button"
+                                              data-title="Blog Title 1"
+                                              data-author="John Doe"
+                                            >
+                                              <i class="fas fa-share"></i> Share
+                                            </button>
+                                          </div>
+                                          <!-- Comment Box (Hidden Initially) -->
+                                          <div class="comment-box" style="display: none">
+                                            <textarea
+                                              class="comment-input"
+                                              placeholder="Write a comment..."
+                                            ></textarea>
+                                            <button class="submit-comment-button">Submit Comment</button>
+                                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                </div>
+                {% endfor %}
+                <div class="clearfix"></div>
+
+                <div class="col-xs-12 mb-30 mt-15">
+                    <div class="form-group no-mb text-center">
+                        <button type="button" class="btn btn-primary btn-lg gradient-blue"
+                            style="width:100%;max-width:300px"> Load more</button>
+                    </div>
+                </div>
+                <!-- MAIN CONTENT AREA ENDS -->
+            </div>
+        </section>
+        <!-- END CONTENT -->
+    </div>
+    <!-- CORE JS FRAMEWORK - START -->
+    <script src="{% static '/assets/js/jquery.min.js' %}"></script>
+    <script src="{% static '/assets/js/jquery.easing.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/pace/pace.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/perfect-scrollbar/perfect-scrollbar.min.js' %}"></script>
+    <script src="{% static '/assets/plugins/viewport/viewportchecker.js' %}"></script>
+    <script>
+        window.jQuery || document.write('<script src="../assets/js/jquery.min.js"><\/script>');
+    </script>
+    <script src="{% static '/assets/js/scripts.js' %}"></script>
+
+    <script>
+      // Like Button functionality
+      const likeButtons = document.querySelectorAll(".like-button");
+      likeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const likeCount = button.querySelector(".like-count");
+          let currentCount = parseInt(likeCount.textContent);
+          likeCount.textContent = currentCount + 1;
+        });
+      });
+
+      // Comment Button functionality
+      const commentButtons = document.querySelectorAll(".comment-button");
+      commentButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const commentBox = button
+            .closest(".blog-card")
+            .querySelector(".comment-box");
+          commentBox.style.display =
+            commentBox.style.display === "none" ? "block" : "none";
+        });
+      });
+
+      // Share Button functionality (Email)
+      const shareButtons = document.querySelectorAll(".share-button");
+      shareButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const title = button.getAttribute("data-title");
+          const author = button.getAttribute("data-author");
+          const mailtoLink = `mailto:?subject=Check out this blog post: ${title}&body=Hi, I found this interesting blog post by ${author}. You can read it here: [link]`;
+          window.location.href = mailtoLink;
+        });
+      });
+
+      // Submit Comment functionality
+      const submitCommentButtons = document.querySelectorAll(
+        ".submit-comment-button"
+      );
+      submitCommentButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const commentInput = button
+            .closest(".comment-box")
+            .querySelector(".comment-input");
+          const commentText = commentInput.value;
+          if (commentText.trim() !== "") {
+            alert(`Comment Submitted: ${commentText}`);
+            commentInput.value = ""; // Clear input field after submission
+          } else {
+            alert("Please write a comment before submitting.");
+          }
+        });
+      });
+    </script>
+
+</body>
+
+</html>

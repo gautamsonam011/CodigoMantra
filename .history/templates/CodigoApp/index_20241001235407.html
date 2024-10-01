@@ -1,0 +1,267 @@
+{% extends 'CodigoApp/base.html' %} {% load static %} {% block content %}
+<!DOCTYPE html>
+{% load static %}
+{% load widget_tweaks %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Cards with Like, Comment, and Share</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+    <style>
+        .col-md-3{
+            margin-left: 5px;
+        }
+    </style>
+  </head>
+
+  <body>
+    <div class="blog-container">
+      <div class="row" style="margin-top: 100px !important; margin-left: 20px !important;">
+        <div class="col-md-4 col-xs-3 ">
+          <div class="blog-card">
+            <img
+              src="{% static 'images/img1.jpg' %}" 
+              alt="Blog Image"
+              class="blog-image"
+            />
+            <div class="blog-content">
+              <h2 class="blog-title">About Painting</h2>
+              <p class="blog-description">
+                Sure! Painting is a fascinating art form that allows for creative expression through color, texture, and form. It can take many styles, from realism to abstract, and can use various mediums, including oil, acrylic, watercolor, and gouache.
+              </p>
+              <div class="blog-footer">
+                <span class="blog-author">Sonam Gautam</span><span style="margin-left: 10px;">01/10/2024</span>
+                <!-- <a href="#" class="read-more">Read More</a> -->
+              </div>
+            </div>
+            <div class="blog-actions">
+              <button class="action-button like-button">
+                <i class="fas fa-heart"></i> Like (<span class="like-count"
+                  >0</span
+                >)
+              </button>
+              <button class="action-button comment-button">
+                <i class="fas fa-comment"></i> Comment
+              </button>
+              <button
+                class="action-button share-button"
+                data-title="Blog Title 1"
+                data-author="John Doe"
+              >
+                <i class="fas fa-share"></i> Share
+              </button>
+            </div>
+            <!-- Comment Box (Hidden Initially) -->
+            <div class="comment-box" style="display: none">
+              <textarea
+                class="comment-input"
+                placeholder="Write a comment..."
+              ></textarea>
+              <button class="submit-comment-button">Submit Comment</button>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-xs-3">
+        <div class="blog-card">
+          <img
+            src="{% static 'images/img2.jpg' %}"
+            alt="Blog Image"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <h2 class="blog-title">Behaviors Of Birds</h2>
+            <p class="blog-description">
+              Their behaviors can be equally intriguing, including migration patterns, mating rituals, and communication methods, like song and calls. Birds are also a popular subject in art and literature, symbolizing freedom, beauty, and nature.
+
+
+            </p>
+            <div class="blog-footer">
+              <span class="blog-author">Sonam Gautam</span><span style="margin-left: 10px;">01/10/2024</span>
+              <!-- <a href="#" class="read-more">Read More</a> -->
+            </div>
+          </div>
+          <div class="blog-actions">
+            <button class="action-button like-button">
+              <i class="fas fa-heart"></i> Like (<span class="like-count"
+                >0</span
+              >)
+            </button>
+            <button class="action-button comment-button">
+              <i class="fas fa-comment"></i> Comment
+            </button>
+            <button
+              class="action-button share-button"
+              data-title="Blog Title 1"
+              data-author="John Doe"
+            >
+              <i class="fas fa-share"></i> Share
+            </button>
+          </div>
+          <!-- Comment Box (Hidden Initially) -->
+          <div class="comment-box" style="display: none">
+            <textarea
+              class="comment-input"
+              placeholder="Write a comment..."
+            ></textarea>
+            <button class="submit-comment-button">Submit Comment</button>
+          </div>
+        </div>
+        </div>
+        <!-- Repeat the structure for other cards as needed -->
+        <div class="col-md-4 col-xs-3">
+        <div class="blog-card">
+          <img
+            src="{% static 'images/img3.jpg' %}"
+            alt="Blog Image"
+            class="blog-image"
+          />
+          <div class="blog-content">
+            <h2 class="blog-title">Key Aspects of Nature</h2>
+            <p class="blog-description">
+              Conservation: With increasing human impact, conservation efforts aim to protect natural habitats and endangered species. This includes establishing protected areas, restoring habitats, and promoting sustainable practices.
+            </p>
+            <div class="blog-footer">
+              <span class="blog-author">Sonam Gautam</span><span style="margin-left: 10px;">01/10/2024</span>
+              <!-- <a href="#" class="read-more">Read More</a> -->
+            </div>
+          </div>
+          <div class="blog-actions">
+            <button class="action-button like-button">
+              <i class="fas fa-heart"></i> Like (<span class="like-count"
+                >0</span
+              >)
+            </button>
+            <button class="action-button comment-button">
+              <i class="fas fa-comment"></i> Comment
+            </button>
+            <button
+              class="action-button share-button"
+              data-title="Blog Title 1"
+              data-author="John Doe"
+            >
+              <i class="fas fa-share"></i> Share
+            </button>
+          </div>
+          <!-- Comment Box (Hidden Initially) -->
+          <div class="comment-box" style="display: none">
+            <textarea
+              class="comment-input"
+              placeholder="Write a comment..."
+            ></textarea>
+            <button class="submit-comment-button">Submit Comment</button>
+          </div>
+        </div>
+        </div>
+      </div>
+      <div class="row">
+        {% for i in newData %}
+        <div class="col-md-4 col-xs-3 ">
+          <div class="blog-card">
+            <img
+              src="{{i.image.url}}"
+              alt="Blog Image"
+              class="blog-image"
+            />
+            <div class="blog-content">
+              <h2 class="blog-title">{{i.heading}}</h2>
+              <p class="blog-description">
+                {{i.brief}}
+              </p>
+              <div class="blog-footer">
+                <span class="blog-author">{{i.blogerName}}</span><span style="margin-left: 5px;">{{i.created_date}}</span>
+                <!-- <a href="#" class="read-more">Read More</a> -->
+              </div>
+            </div>
+            <div class="blog-actions">
+              <button class="action-button like-button">
+                <i class="fas fa-heart"></i> Like (<span class="like-count"
+                  >0</span
+                >)
+              </button>
+              <button class="action-button comment-button">
+                <i class="fas fa-comment"></i> Comment
+              </button>
+              <button
+                class="action-button share-button"
+                data-title="Blog Title 1"
+                data-author="John Doe"
+              >
+                <i class="fas fa-share"></i> Share
+              </button>
+            </div>
+            <!-- Comment Box (Hidden Initially) -->
+            <div class="comment-box" style="display: none">
+              <textarea
+                class="comment-input"
+                placeholder="Write a comment..."
+              ></textarea>
+              <button class="submit-comment-button">Submit Comment</button>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+        
+      </div>
+    </div>
+
+    <script>
+      // Like Button functionality
+      const likeButtons = document.querySelectorAll(".like-button");
+      likeButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const likeCount = button.querySelector(".like-count");
+          let currentCount = parseInt(likeCount.textContent);
+          likeCount.textContent = currentCount + 1;
+        });
+      });
+
+      // Comment Button functionality
+      const commentButtons = document.querySelectorAll(".comment-button");
+      commentButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const commentBox = button
+            .closest(".blog-card")
+            .querySelector(".comment-box");
+          commentBox.style.display =
+            commentBox.style.display === "none" ? "block" : "none";
+        });
+      });
+
+      // Share Button functionality (Email)
+      const shareButtons = document.querySelectorAll(".share-button");
+      shareButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const title = button.getAttribute("data-title");
+          const author = button.getAttribute("data-author");
+          const mailtoLink = `mailto:?subject=Check out this blog post: ${title}&body=Hi, I found this interesting blog post by ${author}. You can read it here: [link]`;
+          window.location.href = mailtoLink;
+        });
+      });
+
+      // Submit Comment functionality
+      const submitCommentButtons = document.querySelectorAll(
+        ".submit-comment-button"
+      );
+      submitCommentButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const commentInput = button
+            .closest(".comment-box")
+            .querySelector(".comment-input");
+          const commentText = commentInput.value;
+          if (commentText.trim() !== "") {
+            alert(`Comment Submitted: ${commentText}`);
+            commentInput.value = ""; // Clear input field after submission
+          } else {
+            alert("Please write a comment before submitting.");
+          }
+        });
+      });
+    </script>
+  </body>
+</html>
+{% endblock content %}
