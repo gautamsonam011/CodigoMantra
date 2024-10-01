@@ -40,7 +40,7 @@ class blog_details(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
     blogerName = models.CharField(max_length=50, null=False, blank=False)
     degree = models.CharField(max_length=500, null=False, blank=False)
-    mobileNo = models.CharField(max_length=20,null=False, default='')
+    mobile = models.CharField(max_length=12)
     address = models.CharField(max_length=500, null=False, blank=False)
     image = models.ImageField(upload_to='uploads/')
     age = models.IntegerField(null=True)
@@ -87,17 +87,15 @@ class commentMessage_detail(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=200)
     content = models.TextField()
-    created_at = models.DateTimeField(auto_now_add=True)   
-     
-# class count_of_likes_blog(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user')
-#     likeCount = models.BooleanField(max_length=500,null=False,blank=False)
-#     email = models.EmailField(default='')
-#     desc = models.CharField(max_length=500,null=False,blank=False)
-#     image = models.ImageField(upload_to='uploads/')
-#     status=models.BooleanField(default=False)
-#     createdDate = models.DateField(auto_now=True)
-#     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-#     class Meta:
-#         unique_together = ('user', 'post')
+    created_at = models.DateTimeField(auto_now_add=True)    
+class count_of_likes_blog(models.Model):
+    likeCount = models.BooleanField(max_length=500,null=False,blank=False)
+    email = models.EmailField(default='')
+    desc = models.CharField(max_length=500,null=False,blank=False)
+    image = models.ImageField(upload_to='uploads/')
+    status=models.BooleanField(default=False)
+    createdDate = models.DateField(auto_now=True)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    class Meta:
+        unique_together = ('user', 'post')
 
